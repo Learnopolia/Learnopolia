@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Join Learnopolia</title>
+    </head>
+
+    <body>
+        <h3>Sign Up</h3>
+        <form action="/submit" method="post" class="form">
+            <input name="firstname" type="text" placeholder="First name" required><br>
+            <input name="lastname" type="text" placeholder="Last name" required><br>
+            <input name="email" type="email" placeholder="Email Address" required><br>
+            <input name="password" type="password" placeholder="Password" required><br>
+            <input name="terms_and_conditions" type="checkbox" required>
+            <button type="submit" value="submit">Register</button>
+        </form>
+
+        <!--
+        <script>
+            function validateForm() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (firstName == "" || lastName == "" || email == "" || password == "") {
+                alert("All fields are required. Please fill them correctly.");
+                return false;
+            }
+
+        // You can add more specific validation rules for email and password here
+
+        return true;
+    }
+        </script>
+    -->
+
+    </body>
+</html>
