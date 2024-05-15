@@ -1,0 +1,204 @@
+/* Debugging with ChatGPT */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+/*
+* {
+    margin: 0;
+    padding: 0;
+}
+*/
+
+/* @@@@@@@  Achievements Section @@@@@@@ */
+.about__achievements {
+  margin-top: 5.7rem;
+  background-color: var(--color-primary-light);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* .about__achievements-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 6rem;
+} */
+
+.about__container {
+  flex: 0 0 auto;
+}
+
+.about__container--1 {
+  width: calc(40% - 3rem);
+}
+
+.about__container--2 {
+  width: calc(60% - 3rem);
+  margin-left: auto;
+}
+
+.about__container--2 > p {
+  margin: 1.6rem 0 2.5rem;
+}
+
+.achievements__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.achievement__card {
+  background: var(--color-primary-dark);
+  padding: 1.6rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.achievement__card:hover {
+  background: var(--color-primary-semi-light);
+  box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.3);
+}
+
+.achievement__icon {
+  background: var(--color-danger);
+  padding: 0.6rem;
+  border-radius: 1rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.achievement__card:nth-child(2) .achievement__icon {
+  background: var(--color-success);
+}
+
+.achievement__card:nth-child(3) .achievement__icon {
+  background: var(--color-primary);
+}
+
+.achievement__card p {
+  margin-top: 0.75rem;
+}
+
+/* @@@@@@ TEAM @@@@@ */
+.team {
+  background: var(--color-primary-bg);
+  /* box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5); */
+}
+
+.team__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.team__member {
+  padding: 1.5rem;
+  background: var(--color-primary-semi-light);
+  transition: var(--transparent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.team h2 {
+  color: var(--color-primary-semi-light);
+}
+
+.team__member-image {
+  width: 100%;
+  height: 75%;
+}
+
+.team__member-image img {
+  filter: saturate(0);
+  border-radius: 0.5rem;
+  transition: all 2s;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team__member:hover img {
+  filter: saturate(1);
+  transform: scale(1.03);
+}
+
+.team__member-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.team__member-info * {
+  text-align: center;
+}
+
+.team__member-info p {
+  color: var(--color-light);
+}
+
+/* .team__member-socials {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -100%;
+  flex-direction: column;
+  background: var(--color-primary);
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: -2rem 0 2rem rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+} */
+
+.team__member:hover .team__member-socials {
+  right: 0;
+}
+
+.team__member-socials a {
+  padding: 1rem;
+}
+
+/* @@@@@  MEDIA QUERIES (Tablets) @@@@@ */
+@media screen and (max-width: 1024px) {
+  .about__achievements {
+    flex-direction: column;
+  }
+
+  .about__container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .team__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team__member {
+    padding: 1rem;
+  }
+}
+
+/* @@@@@  MEDIA QUERIES (Tablets) @@@@@ */
+@media screen and (max-width: 600px) {
+  .achievements__cards {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .team__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
