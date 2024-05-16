@@ -10,12 +10,14 @@
     <body>
         <h3>Sign Up</h3>
         <form action="/submit" method="post" class="form">
+            <div class="msg">{{ msg }}</div>
             <input name="firstname" type="text" placeholder="First name" required><br>
             <input name="lastname" type="text" placeholder="Last name" required><br>
             <input name="email" type="email" placeholder="Email Address" required><br>
             <input name="password" type="password" placeholder="Password" required><br>
             <input name="terms_and_conditions" type="checkbox" required>
             <button type="submit" value="submit">Register</button>
+            <div><p>Already Have An Account? <a href="/login">Login</a></p></div>
         </form>
 
         <!--

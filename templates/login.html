@@ -10,15 +10,16 @@
 <body>
     <div class="container">
         <h3>Access Your Dashboard</h3>
-        <!--
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
-        -->
+
         <form action="/login" method="post" class="form">
+            <div class="msg">{{ msg }}</div>
             <input name="email" type="email" placeholder="Email Address" required><br>
             <input name="password" type="password" placeholder="Password" required><br>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button><br>
+            <div><p>Don't Have An Account? <a href="/signup">Sign Up</a></p></div>
         </form>
     </div>
 </body>
