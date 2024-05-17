@@ -4,7 +4,7 @@ Learnopolia's Flask App
 !/usr/bin/python3
 """
 
-from flask import Flask, request, redirect, render_template, session
+from flask import Flask, request, redirect, render_template, session, send_file
 from flask_sqlalchemy import SQLAlchemy
 
 # app = Flask(__name__)
@@ -31,7 +31,7 @@ def loadContact():
     """
     This function renders the login page when the user requests a contact page
     """
-    return render_template('/contact.html')
+    return send_file('/contact.html')
 
 
 @app.route('/courses')
