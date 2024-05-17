@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join Learnopolia</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='images/user-pages/education.jpg') }}" type="image/jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Sign Up</h3>
+        <form action="/submit" method="post" class="form">
+            <div class="msg">{{ msg }}</div>
+            <div class="input-group">
+                <input name="firstname" type="text" placeholder="First name" required>
+            </div>
+            <div class="input-group">
+                <input name="lastname" type="text" placeholder="Last name" required>
+            </div>
+            <div class="input-group">
+                <input name="email" type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input name="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="checkbox-group">
+                <input name="terms_and_conditions" type="checkbox" id="terms" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+            <button type="submit" value="submit">Register</button>
+            <div class="login-link">
+                <p>Already Have An Account? <a href="/login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
