@@ -3,4 +3,3 @@ flask-mysqldb
 flask-sqlalchemy
 sqlalchemy
 mysqlclient
-send_file
