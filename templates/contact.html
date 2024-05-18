@@ -117,7 +117,7 @@
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
 
-            <!-- The JavaScript function that sends an email to the -->
+            <!-- The JavaScript function that sends an email to Learnopolia's email address -->
             <script>
               function emailSend() {
                 var firstname = document.getElementById('firstname').value;
@@ -130,15 +130,15 @@
                   Username: 'learnopolia@gmail.com',
                   Password: 'AF11FC2B309A251E59C1DF6DDE9472B4F171',
                   To: 'learnopolia@gmail.com',
-                  From: 'learnopolia@gmail.com',
+                  From: email,
                   Subject: 'Contact Form Submission from ' + firstname + ' ' + lastname,
-                  Body: '<strong>Name:<strong> ' + firstname + ' ' + lastname + '<br><strong>Email:<strong> ' + email + '<br><strong>Message:</strong> ' + messageBody
+                  Body: '<strong>Name:</strong> ' + firstname + ' ' + lastname + '<br><br><strong>Email Address:</strong> ' + email + '<br><br><strong>Message:</strong> ' + messageBody
                 }).then(
                   message => {
                     if (message === 'OK') {
-                      swal("Email sent successfully", "", "success");
+                      swal("Email sent successfully • We'll get back to you shortly.", "", "success");
                     } else {
-                      swal("Mail sending failed", "", "error");
+                      swal("Mail sending failed 💔 • Try again?", "", "error");
                     }
                   });
               }
