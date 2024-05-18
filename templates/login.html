@@ -11,10 +11,18 @@
 <body>
     <div class="container">
         <h1>Login</h1>
+        <!--
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
-
+        -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form action="/login" method="post" class="form">
             <div class="msg">{{ msg }}</div>
             <div><input name="email" type="email" placeholder="Email Address" required></div>

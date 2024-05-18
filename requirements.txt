@@ -1,3 +1,4 @@
+flash
 flask
 flask-mysqldb
 flask-sqlalchemy

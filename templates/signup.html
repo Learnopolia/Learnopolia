@@ -12,7 +12,16 @@
 
     <body>
         <h3>Sign Up</h3>
-        <form action="/submit" method="post" class="form">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+          {% endif %}
+       {% endwith %}
+        <form action="/signup" method="post" class="form">
             <div class="msg">{{ msg }}</div>
             <input name="firstname" type="text" placeholder="First name" required><br>
             <input name="lastname" type="text" placeholder="Last name" required><br>
