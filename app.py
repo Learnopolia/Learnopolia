@@ -46,7 +46,12 @@ def loadDashboard():
     """
     This function renders the login page when the user requests a login page
     """
-    return render_template('/dashboard.html')
+    if 'userId' in session:
+        userId = session['userId']
+        user = Users.query.get(userId)
+        return render_template('/dashboard.html', user=user)
+    else:
+        return redirect('/login')
 
 
 @app.route('/')
@@ -82,7 +87,7 @@ def dashboard():
         # Query the database to get the user's information
         user = Users.query.get(userId)
         # Render the dashboard template with the user's information
-        return render_template('dashboard.html', user=user)
+        return render_template('/dashboard.html', user=user)
     else:
         # Redirect to the login page if the user is not logged in
         return redirect('/login')
@@ -111,8 +116,17 @@ def login():
         else:
             # Display an error message
             return render_template('/login.html', error='Invalid email or password')
-
     return render_template('/login.html')
+
+
+@app.route('/logout')
+def logout():
+    """
+    Logging out the user
+    """
+    session.pop('userId', None)
+    return redirect('/login')
+
 
 @app.route('/submit', methods=['POST'])
 def submit_form():
