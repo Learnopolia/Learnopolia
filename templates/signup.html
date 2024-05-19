@@ -3,11 +3,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Join Learnopolia</title>
-
         <link rel="icon" href="{{ url_for('static', filename='images/user-pages/education.jpg') }}" type="image/jpg">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/user-page.css') }}">
+        <!-- Box Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- GOOGLE FONT (Faustina) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Faustina:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
     </head>
 
     <body>
@@ -23,12 +30,12 @@
        {% endwith %}
         <form action="/signup" method="post" class="form">
             <div class="msg">{{ msg }}</div>
-            <input name="firstname" type="text" placeholder="First name" required><br>
-            <input name="lastname" type="text" placeholder="Last name" required><br>
-            <input name="email" type="email" placeholder="Email Address" required><br>
-            <input name="password" type="password" placeholder="Password" required><br>
-            <input name="terms_and_conditions" type="checkbox" required>
-            <button type="submit" value="submit">Register</button>
+            <div><input name="firstname" type="text" placeholder="First name" required><br></div>
+            <div><input name="lastname" type="text" placeholder="Last name" required><br></div>
+            <input name="email" type="email" placeholder="Email Address" required><br></div>
+            <input name="password" type="password" placeholder="Password" required><br></div>
+            <input name="terms_and_conditions" type="checkbox" required></div>
+            <button type="submit" value="submit">Register</button></div>
             <div><p>Already Have An Account? <a href="/login">Login</a></p></div>
         </form>
 
