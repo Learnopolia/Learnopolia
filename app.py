@@ -8,12 +8,17 @@ from flask import Flask, request, redirect, render_template, session, flash
 from flask_sqlalchemy import SQLAlchemy
 # from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.exc import IntegrityError
+from dotenv import load_dotenv
+import os
 
+
+# Load environmental variables from my .env filw
+load_dotenv()
 
 # app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://dohoudaniel:dohoudanielfavour200618@18.210.18.189/learnopolia'
-app.secret_key = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+app.secret_key = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
 

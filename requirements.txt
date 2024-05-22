@@ -2,5 +2,7 @@ flash
 flask
 flask-mysqldb
 flask-sqlalchemy
-sqlalchemy
 mysqlclient
+python-dotenv
+sqlalchemy
+
