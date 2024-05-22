@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap");
+@import url(reset.css);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --border-radius: 1.5rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Faustina", serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 3rem;
+  text-align: center;
+  background-color: #eee;
+}
+
+.course__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .course__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .course__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.swiper {
+  height: auto;
+  margin: 0 !important;
+}
+
+.swiper__wrapper {
+  height: auto;
+}
+
+.swiper-slide {
+  width: 100% !important;
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  border-radius: var(--border-radius);
+  background: var(--color-primary-dark);
+}
+
+.course__image,
+.course__info {
+  height: auto;
+  flex: 1;
+}
+
+.course__image {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.course__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.course__info {
+  padding: 3rem;
+  text-align: center;
+
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.course__info p {
+  font-size: 1.8rem;
+}
+
+.course__info a:link,
+a:visited {
+  font-size: 1.8rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  color: #fff;
+}
+
+.course__info a:hover {
+  border: 1px solid #fff;
+  transition: all 2s;
+}
+
+h2 {
+  font-size: 3.5rem;
+  color: var(--color-primary-dark);
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+/*
+.logout {
+  color: red;
+}
+*/

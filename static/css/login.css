@@ -1,1 +1,7 @@
-@import url(reset.css);
+/* @import url(reset.css); */
+
+@media only screen and (max-width: 37.5em) {
+  .form__container {
+    align-items: center;
+  }
+}

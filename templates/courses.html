@@ -32,6 +32,7 @@
     />
 
     <!-- Adding background texture -->
+    <!-- script defer src="index.js"></!-->
     <style>
       body {
         background-image: url("images/bg-texture.png");
@@ -415,6 +416,6 @@
 
     <!--Linking the JavaScript file index.js -->
     <!-- script src="index.js"></!-script -->
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>
