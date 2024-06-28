@@ -38,14 +38,8 @@ class User(Base):
 # Database Access Variables
 remote_user = "dohoudaniel"
 password = "dohoudanielfavour200618"
-remote_host = "18.210.18.189"
+remote_host = "34.207.211.22"
 remote_db = "learnopolia"
-
-# remote_user = "freedb_dohoudaniel"
-# password = "&uRZfBV%zm#AnV3"
-# remote_host = "sql.freedb.tech"
-# remote_db = "freedb_learnopolia"
-
 
 learnopoliaDBUrl = "mysql://{}:{}@{}/{}".format(
     remote_user, password, remote_host, remote_db)
