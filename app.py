@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import os
 
 
-# Load environmental variables from my .env filw
+# Load environmental variables from my .env file
 load_dotenv()
 
 # app = Flask(__name__)
