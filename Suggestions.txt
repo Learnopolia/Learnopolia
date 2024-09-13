@@ -1,0 +1,49 @@
+*API DEVELOPMENT*
+
+Python 
+-----------
+* Django rest framework
+* APIFlask
+* FastApi
+
+JavaScript
+-----------------
+* Express.js
+* Nest.js
+
+ *API CONSUMPTION* 
+
+Python
+-----------
+* Requests
+* Httpx (async)
+
+JavaScript
+-----------------
+* Axios
+* Fetch
+
+
+
+Flask
+Authentication
+Security
+Email sending
+Tokens
+Dynamic web page
+Clory Sefah
+TechWithTeam
+Redis
+MySQL
+AirBnB
+
+Something Crazy!
+
+https://www.youtube.com/@TechWithTim
+https://www.youtube.com/@coreyms
+
+https://www.mindluster.com/
+https://devdocs.io/
+https://www.webcrawler.com/
+
+Patent search
