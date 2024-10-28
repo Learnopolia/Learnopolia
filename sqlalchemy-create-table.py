@@ -38,7 +38,7 @@ class User(Base):
 # Database Access Variables
 remote_user = "dohoudaniel"
 password = "dohoudanielfavour200618"
-remote_host = "34.207.211.22"
+remote_host = "54.236.26.199"
 remote_db = "learnopolia"
 
 learnopoliaDBUrl = "mysql://{}:{}@{}/{}".format(
