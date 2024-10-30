@@ -1,0 +1,6 @@
+# Add the environmental variables file to be ignored
+.env
+#
+.vscode
+#
+.mypy_cache
