@@ -1,8 +1,0 @@
-flash
-flask
-flask-mysqldb
-flask-sqlalchemy
-mysqlclient
-python-dotenv
-sqlalchemy
-

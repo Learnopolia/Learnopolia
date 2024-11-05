@@ -1,1 +1,0 @@
-This is version 0 of Learnopolia's development and deployment.
