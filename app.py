@@ -14,10 +14,11 @@ import os
 
 # Load environmental variables from my .env file
 load_dotenv()
-
+db_url = 'mysql://{}:{}@{}/{}'.format(os.getenv('USER'), os.getenv('PASSWORD'), os.getenv('HOST'), os.getenv('DATABASE'))
 # app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+
 app.secret_key = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
@@ -167,7 +168,6 @@ def signup():
             flash('Email already registered. Please use a different email or log in.')
             return render_template('/signup.html')
     return render_template('/signup.html')
-
 
 
 if __name__ == '__main__':
