@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/signup.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Sign Up</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+      <ul>
+        {% for category, message in messages %}
+        <li class="flash {{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+      <form method="POST" action="{{ url_for('signup') }}">
+        {{ form.hidden_tag() }}
+
+        <div>
+          {{ form.first_name.label }}<br />
+          {{ form.first_name() }}
+        </div>
+        <div>
+          {{ form.last_name.label }}<br />
+          {{ form.last_name() }}
+        </div>
+        <div>
+          {{ form.email.label }}<br />
+          {{ form.email() }}
+        </div>
+        <div>
+          {{ form.password.label }}<br />
+          {{ form.password() }}
+        </div>
+        <div>
+          {{ form.confirm_password.label }}<br />
+          {{ form.confirm_password() }}
+        </div>
+
+        <!-- Remove the duplicated email field -->
+        <!-- <div>
+          {{ form.email.label }}<br />
+          {{ form.email() }} {% if form.email.errors %}
+          <span class="error">{{ form.email.errors[0] }}</span>
+          {% endif %}
+        </div> -->
+
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+
+      <!-- New section for sign-in prompt -->
+      <div class="sign-in-prompt">
+        <p>Have an account? <a href="{{ url_for('loginPage') }}">Sign In!</a></p>
+      </div>
+    </div>
+  </body>
+</html>
