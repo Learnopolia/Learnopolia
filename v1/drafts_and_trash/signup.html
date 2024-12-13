@@ -12,8 +12,6 @@
   <body>
     <div class="container">
       <h2>Sign Up</h2>
-
-      <!-- Flash messages -->
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
       <ul>
@@ -23,8 +21,6 @@
       </ul>
       {% endif %}
       {% endwith %}
-
-      <!-- Sign Up Form -->
       <form method="POST" action="{{ url_for('signup') }}">
         {{ form.hidden_tag() }}
 
@@ -32,51 +28,25 @@
           {{ form.first_name.label }}<br />
           {{ form.first_name() }}
         </div>
-
         <div>
           {{ form.last_name.label }}<br />
           {{ form.last_name() }}
         </div>
-
         <div>
           {{ form.email.label }}<br />
           {{ form.email() }}
-          {% if form.email.errors %}
-          <ul class="errors">
-            {% for error in form.email.errors %}
-            <li class="error">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
         </div>
-
         <div>
           {{ form.phone_number.label }}<br />
           {{ form.phone_number() }}
         </div>
-
         <div>
           {{ form.password.label }}<br />
           {{ form.password() }}
-          {% if form.password.errors %}
-          <ul class="errors">
-            {% for error in form.password.errors %}
-            <li class="error">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
         </div>
-
         <div>
           {{ form.confirm_password.label }}<br />
           {{ form.confirm_password() }}
-          {% if form.confirm_password.errors %}
-          <ul class="errors">
-            {% for error in form.confirm_password.errors %}
-            <li class="error">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
         </div>
 
         <button type="submit" class="btn btn-primary">Register</button>
@@ -87,17 +57,5 @@
         <p>Have an account? <a href="{{ url_for('loginPage') }}">Sign In!</a></p>
       </div>
     </div>
-
-    <!-- Client-side password validation -->
-    <script>
-      document.querySelector('form').addEventListener('submit', function (e) {
-        const password = document.querySelector('[name="password"]').value;
-        const confirmPassword = document.querySelector('[name="confirm_password"]').value;
-        if (password !== confirmPassword) {
-          e.preventDefault(); // Prevent form submission
-          alert('Passwords do not match. Try again!');
-        }
-      });
-    </script>
   </body>
 </html>

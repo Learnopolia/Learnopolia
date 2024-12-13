@@ -1,0 +1,112 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 10px;
+}
+
+/* Container for the signup form */
+.container {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Form title */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Styling for form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Highlight the input field on focus */
+.input-field:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styles */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Responsive styling for smaller devices */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 350px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .input-field, .btn-primary {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+.sign-in-prompt {
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some space above */
+}
+
+.sign-in-prompt a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold the link */
+}
+
+.sign-in-prompt a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

@@ -1,0 +1,26 @@
+/* .errors {
+  color: red;
+  font-size: 0.9em;
+}
+
+.error {
+  list-style-type: none;
+} */
+
+.errors {
+  color: red;
+  font-size: 0.9em;
+  list-style-type: none;
+}
+
+.error {
+  font-weight: bold;
+}
+
+.flash.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}

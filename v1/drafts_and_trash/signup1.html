@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Sign Up</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/login.css') }}"
+      href="{{ url_for('static', filename='css/signup.css') }}"
     />
   </head>
   <body>
     <div class="container">
-      <h2>Login</h2>
+      <h2>Sign Up</h2>
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
       <ul>
@@ -21,9 +21,17 @@
       </ul>
       {% endif %}
       {% endwith %}
-      <form method="POST" action="{{ url_for('loginPage') }}">
+      <form method="POST" action="{{ url_for('signup') }}">
         {{ form.hidden_tag() }}
 
+        <div>
+          {{ form.first_name.label }}<br />
+          {{ form.first_name() }}
+        </div>
+        <div>
+          {{ form.last_name.label }}<br />
+          {{ form.last_name() }}
+        </div>
         <div>
           {{ form.email.label }}<br />
           {{ form.email() }}
@@ -36,23 +44,24 @@
           {% endif %}
         </div>
         <div>
+          {{ form.phone_number.label }}<br />
+          {{ form.phone_number() }}
+        </div>
+        <div>
           {{ form.password.label }}<br />
           {{ form.password() }}
-          {% if form.password.errors %}
-            <ul class="errors">
-              {% for error in form.password.errors %}
-                <li class="error">{{ error }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+        </div>
+        <div>
+          {{ form.confirm_password.label }}<br />
+          {{ form.confirm_password() }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Register</button>
       </form>
 
-      <!-- New section for sign-up prompt -->
-      <div class="sign-up-prompt">
-        <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up!</a></p>
+      <!-- New section for sign-in prompt -->
+      <div class="sign-in-prompt">
+        <p>Have an account? <a href="{{ url_for('loginPage') }}">Sign In!</a></p>
       </div>
     </div>
   </body>
