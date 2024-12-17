@@ -1,0 +1,67 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Georgia", serif;
+    background: linear-gradient(to bottom, #F7F7F7, #EAEAEA);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.message {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.icon {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.note {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .message {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+
+    .note {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .message {
+        font-size: 1.2rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .note {
+        font-size: 0.8rem;
+    }
+}

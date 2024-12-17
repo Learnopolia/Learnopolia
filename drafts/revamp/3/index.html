@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnopolia - Under Construction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('revamp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .content {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+        .message h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .message p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            background: #444;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 20px;
+        }
+        .progress {
+            {% comment %} <!-- This is the part where the color progress --> {% endcomment %}
+            background: #4caf50;
+            height: 100%;
+            width: 15%;
+            transition: width 0.3s;
+        }
+        .progress-text {
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        .thank-you-message {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main class="content">
+        <div class="message">
+            <h1>Learnopolia is under construction</h1>
+            <p>We're making improvements to give you the best experience. Stay tuned for updates.</p>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <p class="progress-text">15% Complete</p>
+        </div>
+        <form id="subscribe-form" class="subscribe-form">
+            <h2>Stay Updated</h2>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Subscribe to Stay Updated</button>
+        </form>
+        <div id="thank-you-message" class="thank-you-message hidden">
+            Thank you for subscribing!
+        </div>
+    </main>
+    <script>
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('thank-you-message').classList.remove('hidden');
+            this.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+I want to stop working on Learnopolia for a while, and as such, I want to design a web page that tells the users that visit Learnopolia, that it is under construction, and I want to have this for the future as well.
+
+I want to design an web page using HTML, CSS and JS
+
+Here's what I want the web page to do, and here:
+
+1. Background:
+I will be using an image as the background for the webpage. The CSS file should allow the image to be responsive on both mobile and web design. And include the image in the HTML code.
+
+2. Message:
+The main message on the page will be:
+"Learnopolia is under construction. We're making improvements to give you the best experience. Stay tuned for updates."
+Write this main message in Georgia, and I want the text to be on the right centre side.
+
+
+3. Progress Bar:
+Include a progress bar indicating the development stage of Learnopolia. The progress bar should be subtle yet visible, showing a percentage of the work completed (e.g., "50%").
+
+4. Form:
+Below the message, include a form (using Flask for the backend) to collect the user's full name and email address.
+The form should have the following fields:
+Full Name (required text input)
+Email (required email input)
+A 'Submit' button labeled 'Subscribe to Stay Updated'
+
+5. Design:
+The page should have a minimalistic and modern design. Ensure the text is at the center, but towards the right, along with the Flask form and easily readable on top of the background image.
+The form should be clear and easy to fill out, with proper spacing between elements.
+Keep the layout responsive and mobile-friendly.
+
+6. Additional Visual Elements:
+Consider using subtle animation for the progress bar or loading icon to enhance the user experience while they wait.
+
+
+Remember to do this in HTML, CSS and JS, and add animations to the page as well.
+
+What I plan to do with the Flask form is that, I will submit the user's details to an already set up remote database, and instead of refreshing the page, it will just refresh the form, and display a message, upon successful submission saying "Thank you for subscribing!"
+
+Give this your best. Go!
+
+Remember to do this in HTML, CSS and JavaScript.
