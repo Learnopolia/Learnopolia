@@ -13,7 +13,7 @@ import os
 
 # Load environmental variables from my .env file
 load_dotenv()
-db_url = 'mysql://{}:{}@{}/{}'.format(os.getenv('USER'), os.getenv('PASSWORD'), os.getenv('HOST'), os.getenv('DATABASE'))
+db_url = os.getenv('DB_URL')
 # app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
