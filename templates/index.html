@@ -7,11 +7,18 @@
     <title>Learnopolia 🐢</title>
 
     <!-- Home Page Logo -->
-    <link rel="icon" href="{{ url_for('static', filename='images/website-logo/home-page/JPG.jpg') }}" type="image/jpg">
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logos/home.jpg') }}"
+      type="image/jpg"
+    />
 
     <!-- Link style.css -->
     <!-- link rel="stylesheet" href="css/style.css" / -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
 
     <!-- ICONSCOUT CDN -->
     <link
@@ -26,607 +33,55 @@
       href="https://fonts.googleapis.com/css2?family=Faustina:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Swiper.js CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
-
-    <!-- Adding background texture -->
-    <!-- <style>
-      body {
-        background-image: url("/images/bg-texture.png");
-      }
-    </style> -->
   </head>
 
   <body>
-    <!-- NAVIGATION BAR -->
-    <nav>
-      <div class="container nav__container">
-        <a href="/">
-          <h3>Learnopolia 🐢</h3>
-        </a>
-        <ul class="nav__menu" id="page-font">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/courses">Courses</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-        </ul>
-        <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-        <button id="close-menu-btn">
-          <i class="uil uil-times-square"></i>
-        </button>
-      </div>
-    </nav>
-
-    <!-- HEADER -->
-    <header>
-      <div class="header__content">
-        <h1>Harness The Power Of Education</h1>
-        <p>
-          Fuel your intellectual growth, and harness high-quality educational
-          resources.
-        </p>
-        <a href="/login" class="btn btn-primary">Take The First Step</a>
-      </div>
-      <div class="header__content">
-        <!-- img src="images/index_header.svg" / -->
-        <img src="{{ url_for('static', filename='images/index_header.svg') }}" alt="Daniel">
-      </div>
-      <!-- <div class="container header__container">
-
-      </div> -->
-    </header>
-
-    <section class="categories">
-      <div class="categories__container">
-        <div class="categories__left">
-          <h1>Study Pathways</h1>
+    <div class="background-overlay"></div>
+    <div class="container">
+      <main class="content">
+        <div class="text-section">
+          <h1>Learnopolia is being rebuilt.</h1>
           <p>
-            Uncover captivating subjects, delve into thought-provoking topics,
-            and embark on personalized study paths tailored specifically to your
-            unique interests and goals.
+            We're making improvements to give you the best experience. Stay
+            tuned for updates.
           </p>
-          <a href="/login" class="btn">Start Exploring</a>
-        </div>
 
-        <div class="categories__right">
-          <article class="category">
-            <span class="category__icon"
-              ><i class="uil uil-desktop-cloud-alt"></i
-            ></span>
-            <h5>Software Engineering</h5>
-            <p>
-              Learn how to apply engineering principles to develop efficient and
-              reliable software solutions.
-            </p>
-          </article>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <span class="progress-text">50% Complete</span>
+          </div>
 
-          <article class="category">
-            <span class="category__icon"><i class="uil uil-brain"></i></span>
-            <h5>Introduction to Psychology</h5>
-            <p>
-              Explore the fascinating depths of the human mind and unravel the
-              complexities of behavior, perception, and the science behind our
-              thoughts and emotions.
-            </p>
-          </article>
-
-          <article class="category">
-            <span class="category__icon"><i class="uil uil-edit"></i></span>
-            <h5>Creative Writing</h5>
-            <p>
-              Unleash your imagination, craft vivid worlds with words, and bring
-              your stories to life through the power of storytelling.
-            </p>
-          </article>
-
-          <article class="category">
-            <span class="category__icon"
-              ><i class="uil uil-camera-plus"></i
-            ></span>
-            <h5>Photography Essentials</h5>
-            <p>
-              Learn to capture extraordinary moments, master the art of visual
-              storytelling, and create stunning images that leave a lasting
-              impression.
-            </p>
-          </article>
-
-          <article class="category">
-            <span class="category__icon"
-              ><i class="uil uil-credit-card-search"></i
-            ></span>
-            <h5>Personal Finance and Wealth Management</h5>
-            <p>
-              Gain the knowledge and skills to take control of your financial
-              future, make smart investment decisions, and build a solid
-              foundation for long-term financial success.
-            </p>
-          </article>
-
-          <article class="category">
-            <span class="category__icon"
-              ><i class="uil uil-heart-medical"></i
-            ></span>
-            <h5>Mindfulness and Stress Management</h5>
-            <p>
-              Discover the transformative power of mindfulness, unlock inner
-              peace, and develop practical techniques to navigate the challenges
-              of daily life with resilience and calmness.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION FOR POPULAR COURSES -->
-    <section class="courses">
-      <h2>Top-rated Courses</h2>
-      <div class="courses__container">
-        <!-- First course -->
-        <article class="course">
-          <div class="course__image">
-            <!-- img src="images/software.jpg" / -->
-            <img src="{{ url_for('static', filename='images/software.jpg') }}" alt="Software Engineering">
-          </div>
-          <div class="course__info">
-            <h4>Software Engineering</h4>
-            <p>
-              From concept to deployment, discover the art and science behind
-              developing robust, efficient, and user-centric software
-              applications.
-            </p>
-            <a href="/login" class="btn btn-primary">Learn More</a> <!-- https://www.alxafrica.com/ -->
-          </div>
-        </article>
-
-        <!-- Second course -->
-        <article class="course">
-          <div class="course__image">
-            <!-- img src="images/ai.jpg" / -->
-            <img src="{{ url_for('static', filename='images/ai.jpg') }}" alt="Artificial Intelligence">
-          </div>
-          <div class="course__info">
-            <h4>Artificial Intelligence</h4>
-            <p>
-              As AI continues to advance, it holds the promise of solving complex problems, driving innovation,
-              and improving lives worldwide. Embracing AI responsibly is key to unlocking its full potential
-              and building a brighter future for all.
-            </p>
-            <a href="/login" class="btn btn-primary" target="_blank">Learn More</a> <!-- https://www.alxafrica.com/programme/career-ready-skills-training/ -->
-          </div>
-        </article>
-
-        <!-- Third course -->
-        <article class="course">
-          <div class="course__image">
-            <!-- img src="images/finance.jpg" / -->
-            <img src="{{ url_for('static', filename='images/finance.jpg') }}" alt="Finance Management">
-          </div>
-          <div class="course__info">
-            <h4>Personal Finance and Wealth Management</h4>
-            <p>
-              Unlock the secrets to financial success, gain control of your
-              money, and pave the way towards a secure and prosperous future.
-            </p>
-            <a href="/login" class="btn btn-primary" target="_blank">Learn More</a> <!-- https://www.udemy.com/topic/personal-finance/ -->
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- FREQUENTLY ASKED QUESTIONS -->
-    <section class="faqs">
-      <h2>Quick References (FAQs)</h2>
-      <div class="faqs__container">
-        <!-- First FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>How can I sign up for Learnopolia?</h4>
-            <p>
-              Signing up for Learnopolia is easy! Simply click on the "Sign Up"
-              button and follow the prompts to create your account using your
-              email.
-            </p>
-          </div>
-        </article>
-
-        <!-- Second FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>What types of courses are available on Learnopolia</h4>
-            <p>
-              Learnopolia offers a wide range of courses covering various
-              subjects, including technology, arts, business, languages, and
-              more. You'll find something to suit your interests and learning
-              goals.
-            </p>
-          </div>
-        </article>
-
-        <!-- Third FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>Is Learnopolia free to use?</h4>
-            <p>
-              Yes, Learnopolia is completely free to use. We believe in
-              providing accessible and affordable education for all.
-            </p>
-          </div>
-        </article>
-
-        <!-- Fourth FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>How can I access the study materials and resources?</h4>
-            <p>
-              Once you sign up and enroll in a course, you'll have access to the
-              study materials and resources within the course dashboard. You can
-              conveniently access them anytime, anywhere, from any device with
-              an internet connection.
-            </p>
-          </div>
-        </article>
-
-        <!-- Fifth FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>Can I track my progress and achievements on Learnopolia?</h4>
-            <p>
-              Absolutely! Learnopolia provides progress tracking and achievement
-              badges to help you monitor your learning journey. You can see your
-              course progress, completed modules, and earn badges as you reach
-              milestones.
-            </p>
-          </div>
-        </article>
-
-        <!-- Sixth FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>Can I download the course materials for offline access?</h4>
-            <p>
-              Yes, on Learnopolia, you have the option to download certain
-              course materials for offline access. Look for the download button
-              next to the resources or lectures that are available for offline
-              viewing.
-            </p>
-          </div>
-        </article>
-
-        <!-- Seventh FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>How can I interact with other learners on Learnopolia?</h4>
-            <p>
-              Learnopolia encourages an interactive learning environment. You
-              can engage with other learners through discussion forums,
-              course-specific chat groups, and community boards where you can
-              share insights, ask questions, and collaborate with fellow
-              learners.
-            </p>
-          </div>
-        </article>
-
-        <!-- Eighth FAQ-->
-        <article class="faq">
-          <div class="faq__icon"><i class="uil uil-plus"></i></div>
-          <div class="question__answer">
-            <h4>How can I get support if I have questions or issues?</h4>
-            <p>
-              If you have any questions or encounter any issues, our support
-              team is here to help! You can reach out to us through the "Contact
-              Us" page or send an email to our support email address. We'll
-              respond to you promptly and assist you in any way we can.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- UNFILTERED TESTIMONIES-->
-    <section class="user__container mySwiper">
-      <h2>Unfiltered Testimonies</h2>
-      <div class="swiper-wrapper">
-        <!-- First Success Story -->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/iris.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/iris.jpg') }}" alt="Iris">
-          </div>
-          <div class="user__info">
-            <h5><strong>Iris West-Allen</strong></h5>
-            <small>Web Developer</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "Thanks to Learnopolia, I was able to expand my knowledge in web
-                development. The courses were well-structured, the instructors
-                were knowledgeable, and the hands-on projects allowed me to
-                apply what I learned. I'm now confident in my skills and ready
-                to pursue a career in web development."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Second Success Story -->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/vincent.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/vincent.jpg') }}" alt="Vincent">
-          </div>
-          <div class="user__info">
-            <h5><strong>Vincent Maxwell</strong></h5>
-            <small>College Student</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "Learnopolia provided me with an excellent learning experience.
-                The variety of courses allowed me to explore different subjects
-                and discover new interests. The interactive learning materials
-                and engaging community discussions made the learning process
-                enjoyable and helped me connect with fellow learners."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Third Success Story-->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/michael.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/michael.jpg') }}" alt="Daniel">
-          </div>
-          <div class="user__info">
-            <h5><strong>Michael Wazowsky</strong></h5>
-            <small>Digital Marketer</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "I had always been interested in digital marketing but didn't
-                know where to start. Learnopolia's digital marketing course was
-                a game-changer for me. The course covered all the essential
-                topics, provided practical insights, and even offered industry
-                certifications. Thanks to Learnopolia, I'm now confident in my
-                digital marketing skills and ready to pursue my passion."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Fourth Success Story -->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/aisha.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/aisha.jpg') }}" alt="Aisha">
-          </div>
-          <div class="user__info">
-            <h5>
-              <strong>Aisha Baali</strong>
-            </h5>
-            <small>Entrepreneur</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "I was looking to enhance my leadership skills, and
-                Learnopolia's leadership development courses exceeded my
-                expectations. The comprehensive modules, interactive
-                simulations, and expert-led discussions provided valuable
-                insights and practical strategies. Learnopolia empowered me to
-                become a more effective leader in my professional and personal
-                life."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Fifth Success Story -->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/lisa.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/lisa.jpg') }}" alt="Lisa">
-          </div>
-          <div class="user__info">
-            <h5><strong>Lisa Bennoist</strong></h5>
-            <small>High-School Student</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "Learnopolia provided me with an excellent learning experience.
-                The variety of courses allowed me to explore different subjects
-                and discover new interests. The interactive learning materials
-                and engaging community discussions made the learning process
-                enjoyable and helped me connect with fellow learners."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Sixth Success Story-->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/lazolia.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/lazolia.jpg') }}" alt="Lazolia">
-          </div>
-          <div class="user__info">
-            <h5><strong>Lazolia</strong></h5>
-            <small>Student</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "Learnopolia transformed my language learning experience. The
-                interactive lessons, engaging exercises, and personalized
-                feedback from instructors helped me improve my fluency and
-                confidence in a foreign language. Learnopolia provided a
-                supportive and immersive environment that made language learning
-                both effective and enjoyable."
-              </em>
-            </p>
-          </div>
-        </article>
-
-        <!-- Seventh Success Story -->
-        <article class="user swiper-slide">
-          <div class="avatar">
-            <!-- img src="images/users/precious.jpg" / -->
-            <img src="{{ url_for('static', filename='images/users/precious.jpg') }}" alt="Precious">
-          </div>
-          <div class="user__info">
-            <h5><strong>Precious</strong></h5>
-            <small>Mother</small>
-          </div>
-          <div class="user__body">
-            <p>
-              <em>
-                "Learnopolia has been a game-changer for my homeschooling
-                journey. Providing a wide range of grade-level courses
-                with engaging content and interactive exercises, Learnopolia made
-                learning fun and interactive for my children, providing them
-                with a well-rounded education across various subjects.
-              </em>
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <!-- ADDING swiper.js pagination -->
-      <div class="swiper-pagination"></div>
-    </section>
-
-    <!--Linking the JavaScript file index.js -->
-    <!-- script src="index.js"></!script -->
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-
-
-    <!-- Adding swiper.js for Unfiltered Testimonies -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        // when window width is >= 600px (mobile phones)
-        breakpoints: {
-          600: {
-            slidesPerView: 2,
-          },
-        },
-      });
-    </script>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer__container">
-        <!-- Footer 1 -->
-        <div class="footer__1">
-          <a href="/" class="footer__logo">
-            <h4>Learnopolia 🐢</h4>
-          </a>
-          <p>
-            The ultimate destination for free and accessible learning materials
-            and resources.
-          </p>
-        </div>
-
-        <!-- Footer 2 -->
-        <div class="footer__2">
-          <h4>Learn More</h4>
-          <ul class="permalinks">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About 🐢</a></li>
-            <li><a href="/courses">Courses</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Footer 3 -->
-        <div class="footer__3">
-          <h4>Privacy</h4>
-          <ul class="privacy">
-            <li><a href="/">Privacy Policy</a></li>
-            <li><a href="/">Terms of Service</a></li>
-            <li><a href="/">Cookie Policy 🍪</a></li>
-            <li><a href="/">Terms And Conditions</a></li>
-            <li><a href="/">Compliance and Legal Rights</a></li>
-          </ul>
-        </div>
-
-        <!-- Footer 4 -->
-        <div class="footer__4">
-          <h4>Contact Us</h4>
-          <div>
-            <ul class="footer__socials">
-              <li>
-                <!-- GMail -->
-                <a href="mailto:learnopolia@gmail.com" target="_blank">
-                  <i class="uil uil-envelope"></i>
-                  <!-- GMail -->
-                </a>
-              </li>
-              <!-- WhatsApp -->
-              <li>
-                <a
-                  href="https://api.whatsapp.com/send?phone=2348139720259"
-                  target="_blank"
-                >
-                  <i class="uil uil-whatsapp"></i>
-                  <!-- WhatsApp -->
-                </a>
-              </li>
-              <!-- Telephone -->
-              <li>
-                <a href="tel:+2348139720259" target="_blank">
-                  <i class="uil uil-phone-volume"></i>
-                  <!-- Phone -->
-                </a>
-              </li>
-              <!-- Twitter -->
-              <li>
-                <a href="https://twitter.com/learnopolia/" target="_blank">
-                  <i class="uil uil-twitter"></i>
-                  <!-- Twitter -->
-                </a>
-              </li>
-              <!-- GitHub -->
-              <li>
-                <a href="https://github.com/learnopolia/" target="_blank">
-                  <i class="uil uil-github"></i>
-                  <!--GitHub-->
-                </a>
-              </li>
-            </ul>
+          <form id="subscribe-form" class="subscribe-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+            <button type="submit" id="submit-btn">
+              Subscribe to Stay Updated
+            </button>
+          </form>
+          <div id="form-message" class="hidden">
+            Thank you for your interest. Stay tuned!
           </div>
         </div>
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer__copyright">
-        <small
-          >Copyright &copy; 2023. Learnopolia 🐢. All Rights Reserved.</small
-        >
-      </div>
-    </footer>
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
