@@ -51,7 +51,7 @@ p {
 
 .progress-bar {
     height: 100%;
-    width: 50%; /* You can adjust this to show the progress */
+    width: 15%; /* You can adjust this to show the progress */
     background-color: #4CAF50;
 }
 
