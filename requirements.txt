@@ -1,3 +1,5 @@
+# The modules for the 'Coming Soon' functionality
+cryptography
 flash
 flask
 flask-mysqldb
