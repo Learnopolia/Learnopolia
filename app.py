@@ -4,9 +4,8 @@ Learnopolia's Flask App
 !/usr/bin/python3
 """
 
-from flask import Flask, request, redirect, render_template, session, flash
+from flask import Flask, request, redirect, render_template, session, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
-# from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.exc import IntegrityError
 from dotenv import load_dotenv
 import os
@@ -23,69 +22,24 @@ app.secret_key = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
 
-class Users(db.Model):
-    userId = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    firstname = db.Column(db.String(50), nullable=False)
-    lastname = db.Column(db.String(50), nullable=False)
+# The Users model
+# class Users(db.Model):
+#     userId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     firstname = db.Column(db.String(50), nullable=False)
+#     lastname = db.Column(db.String(50), nullable=False)
+#     email = db.Column(db.String(100), nullable=False, unique=True)
+#     password = db.Column(db.String(100), nullable=False)
+
+
+# New Subscribers model for the under construction page
+class Subscribers(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    fullName = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    password = db.Column(db.String(100), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), server_default=db.func.now())
 
 
-@app.route('/about')
-def loadAbout():
-    """
-    This function renders the login page when the user requests an about page
-    """
-    return render_template('/about.html')
-
-
-@app.route('/contact')
-def loadContact():
-    """
-    This function renders the login page when the user requests a contact page
-    """
-    return render_template('/contact.html')
-
-
-@app.route('/courses')
-def loadCourses():
-    """
-    This function renders the login page when the user requests a courses page
-    """
-    return render_template('/courses.html')
-
-
-@app.route('/dashboard')
-def loadDashboard():
-    """
-    This function renders the login page when the user requests a login page
-    """
-    if 'userId' in session:
-        userId = session['userId']
-        user = Users.query.get(userId)
-        flash('Login successful! Welcome to your dashboard!')
-        return render_template('/dashboard.html', user=user)
-    else:
-        flash('You must be logged in to access the dashboard.')
-        return redirect('/login')
-"""
-@app.route('/dashboard')
-def dashboard():
-    # This page is rendered after the user requests a dashboard endpoint
-    # Check if the user is logged in
-    if 'userId' in session:
-        # Retrieve the user's ID from the session
-        userId = session['userId']
-        # Query the database to get the user's information
-        user = Users.query.get(userId)
-        # Render the dashboard template with the user's information
-        return render_template('/dashboard.html', user=user)
-    else:
-        # Redirect to the login page if the user is not logged in
-        return redirect('/login')
-"""
-
-
+# Loading the Home page
 @app.route('/')
 def loadIndex():
     """
@@ -94,83 +48,190 @@ def loadIndex():
     return render_template('/index.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+# Handling error pages or wrong redirections
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+# The Subscribers' route
+@app.route('/api/subscribe', methods=['POST'])
+def subscribe():
     """
-    This logs the user into the website
-    by checking if the user's email or password
-    corresponds with the one in the backend
+    Handle subscription requests from the under construction page
     """
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+    try:
+        data = request.get_json()
 
-        # Query the database for a user with the entered email and password
-        user = Users.query.filter_by(email=email, password=password).first()
-        # print(user)
-        if user: # and check_password_hash(user.password, password):
-            # Store the user's ID in the session
-            session['userId'] = user.userId
-            # Redirect to the dashboard or homepage
-            # flash('Login successful! Welcome to your dashboard.')
-            return redirect('/dashboard')
-        else:
-            # Display an error message
-            flash('Invalid email or password.')
-            return render_template('/login.html', error='Invalid email or password')
-    return render_template('/login.html')
-"""
-@app.route('/login')
-def loadLogin():
-    This function renders the login page when the user requests a login page
-    return render_template('/login.html')
-"""
+        if not data or not data.get('email') or not data.get('fullName'):
+            return jsonify({
+                'success': False,
+                'message': 'Missing required fields'
+            }), 400
 
+        # Check for existing subscriber
+        existing_subscriber = Subscribers.query.filter_by(email=data['email']).first()
+        if existing_subscriber:
+            return jsonify({
+                'success': False,
+                'message': 'This email is already subscribed'
+            }), 409
 
-@app.route('/logout')
-def logout():
-    """
-    Logging out the user
-    """
-    session.pop('userId', None)
-    flash('You have been logged out.')
-    return redirect('/login')
+        # Create new subscriber
+        new_subscriber = Subscribers(
+            fullName=data['fullName'],
+            email=data['email']
+        )
 
+        db.session.add(new_subscriber)
+        db.session.commit()
 
-"""
-@app.route('/submit')
-def loadSignup():
-    This function renders the login page when the user requests a login page
-    pass
-    # return render_template('/signup.html')
-"""
+        return jsonify({
+            'success': True,
+            'message': 'Thank you for your interest. Stay tuned!'
+        }), 200
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    """
-    Submitting the user's requests
-    to sign-up or login
-    """
-    if request.method == "POST":
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
-        email = request.form['email']
-        password = request.form['password']
-        # hashed_password = generate_password_hash(password)
-        new_user = Users(firstname=firstname, lastname=lastname, email=email, password=password)
-        try:
-            db.session.add(new_user)
-            db.session.commit()
-            flash('Registration successful! Please log in.')
-            return redirect('/login')
-        except IntegrityError:
-            db.session.rollback()
-            flash('Email already registered. Please use a different email or log in.')
-            return render_template('/signup.html')
-    return render_template('/signup.html')
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({
+            'success': False,
+            'message': 'An error occurred while processing your request'
+        }), 500
 
 
+# Running the website
 if __name__ == '__main__':
     app.secret_key = 'your_secret_key'
     # app.run(debug=True)
-    app.run(host='0.0.0.0', port=5000) #, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+
+### Comments ###
+# @app.route('/about')
+# def loadAbout():
+#     """
+#     This function renders the login page when the user requests an about page
+#     """
+#     return render_template('/about.html')
+
+
+# @app.route('/contact')
+# def loadContact():
+#     """
+#     This function renders the login page when the user requests a contact page
+#     """
+#     return render_template('/contact.html')
+
+
+# @app.route('/courses')
+# def loadCourses():
+#     """
+#     This function renders the login page when the user requests a courses page
+#     """
+#     return render_template('/courses.html')
+
+
+# @app.route('/dashboard')
+# def loadDashboard():
+#     """
+#     This function renders the login page when the user requests a login page
+#     """
+#     if 'userId' in session:
+#         userId = session['userId']
+#         user = Users.query.get(userId)
+#         flash('Login successful! Welcome to your dashboard!')
+#         return render_template('/dashboard.html', user=user)
+#     else:
+#         flash('You must be logged in to access the dashboard.')
+#         return redirect('/login')
+# """
+# @app.route('/dashboard')
+# def dashboard():
+#     # This page is rendered after the user requests a dashboard endpoint
+#     # Check if the user is logged in
+#     if 'userId' in session:
+#         # Retrieve the user's ID from the session
+#         userId = session['userId']
+#         # Query the database to get the user's information
+#         user = Users.query.get(userId)
+#         # Render the dashboard template with the user's information
+#         return render_template('/dashboard.html', user=user)
+#     else:
+#         # Redirect to the login page if the user is not logged in
+#         return redirect('/login')
+# """
+
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     """
+#     This logs the user into the website
+#     by checking if the user's email or password
+#     corresponds with the one in the backend
+#     """
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         password = request.form['password']
+
+#         # Query the database for a user with the entered email and password
+#         user = Users.query.filter_by(email=email, password=password).first()
+#         # print(user)
+#         if user: # and check_password_hash(user.password, password):
+#             # Store the user's ID in the session
+#             session['userId'] = user.userId
+#             # Redirect to the dashboard or homepage
+#             # flash('Login successful! Welcome to your dashboard.')
+#             return redirect('/dashboard')
+#         else:
+#             # Display an error message
+#             flash('Invalid email or password.')
+#             return render_template('/login.html', error='Invalid email or password')
+#     return render_template('/login.html')
+# """
+# @app.route('/login')
+# def loadLogin():
+#     This function renders the login page when the user requests a login page
+#     return render_template('/login.html')
+# """
+
+
+# @app.route('/logout')
+# def logout():
+#     """
+#     Logging out the user
+#     """
+#     session.pop('userId', None)
+#     flash('You have been logged out.')
+#     return redirect('/login')
+
+
+# """
+# @app.route('/submit')
+# def loadSignup():
+#     This function renders the login page when the user requests a login page
+#     pass
+#     # return render_template('/signup.html')
+# """
+
+# @app.route('/signup', methods=['GET', 'POST'])
+# def signup():
+#     """
+#     Submitting the user's requests
+#     to sign-up or login
+#     """
+#     if request.method == "POST":
+#         firstname = request.form['firstname']
+#         lastname = request.form['lastname']
+#         email = request.form['email']
+#         password = request.form['password']
+#         # hashed_password = generate_password_hash(password)
+#         new_user = Users(firstname=firstname, lastname=lastname, email=email, password=password)
+#         try:
+#             db.session.add(new_user)
+#             db.session.commit()
+#             flash('Registration successful! Please log in.')
+#             return redirect('/login')
+#         except IntegrityError:
+#             db.session.rollback()
+#             flash('Email already registered. Please use a different email or log in.')
+#             return render_template('/signup.html')
+#     return render_template('/signup.html')
