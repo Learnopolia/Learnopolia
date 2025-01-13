@@ -91,7 +91,15 @@ def loadIndex():
     """
     This function renders the login page when the user requests the home page
     """
-    return render_template('/index.html')
+    if 'userId' in session:
+        userId = session['userId']
+        user = Users.query.get(userId)
+        flash('Login successful! Welcome to your dashboard!')
+        return render_template('/dashboard.html', user=user)
+    else:
+        flash('You must be logged in to access the dashboard.')
+        # return redirect('/login')
+        return render_template('/index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
